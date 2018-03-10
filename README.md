@@ -5,14 +5,19 @@ A simple sorting algorithm library written in C, along with a program to test an
 The included sorting algorithms and their worst-case computational complexities:
 * Heapsort (`heapsort.c`):
   * O(n) = nlogn
-* Insertion sort (`insertion_sort.c`):
-  * O(n) = n<sup>2</sup>
+  * Currently the fastest in the library
 * Selection sort (`selection_sort.c`):
   * O(n) = n<sup>2</sup>
+* Insertion sort (`insertion_sort.c`):
+  * O(n) = n<sup>2</sup>
+* Cocktail shaker sort (`cocktail_shaker_sort.c`):
+  * O(n) = n<sup>2</sup>
+  * Similar to bubble sort, except it sorts in both directions
 * Bubble sort (`bubble_sort.c`):
   * O(n) = n<sup>2</sup>
 * Bogosort (`bogosort.c`):
   * O(n) = infinity
+  * Not recommended running on more than 12 elements
 
 Note that additional sorting algorithms may be added in the future.
 ## Tester

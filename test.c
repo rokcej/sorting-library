@@ -3,8 +3,9 @@
 #include <time.h>
 #include "test.h"
 #include "heapsort.h"
-#include "insertion_sort.h"
 #include "selection_sort.h"
+#include "insertion_sort.h"
+#include "cocktail_shaker_sort.h"
 #include "bubble_sort.h"
 #include "bogosort.h"
 
@@ -16,9 +17,11 @@ int main() {
 	 */
 	alg algorithms[] = {
 		{ "Heapsort", heapsort },
-		{ "Insertion sort", insertion_sort },
 		{ "Selection sort", selection_sort },
-		{ "Bubble sort", bubble_sort }
+		{ "Insertion sort", insertion_sort },
+		{ "Cocktail shaker sort", cocktail_shaker_sort },
+		{ "Bubble sort", bubble_sort },
+		{ "Bogosort", bogosort }
 	};
 
 	// Number of sorting algorithms to be tested
