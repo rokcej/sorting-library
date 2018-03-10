@@ -17,7 +17,7 @@ The included sorting algorithms and their worst-case computational complexities:
   * O(n) = n<sup>2</sup>
 * Bogosort (`bogosort.c`):
   * O(n) = infinity
-  * Not recommended running on more than 12 elements
+  * Not recommended running on more than 13 elements
 
 Note that additional sorting algorithms may be added in the future.
 ## Tester

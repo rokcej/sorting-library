@@ -20,8 +20,8 @@ int main() {
 		{ "Selection sort", selection_sort },
 		{ "Insertion sort", insertion_sort },
 		{ "Cocktail shaker sort", cocktail_shaker_sort },
-		{ "Bubble sort", bubble_sort },
-		{ "Bogosort", bogosort }
+		{ "Bubble sort", bubble_sort }
+		//{ "Bogosort", bogosort } // Too slow! Don't use for n > 13
 	};
 
 	// Number of sorting algorithms to be tested
