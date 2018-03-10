@@ -98,5 +98,5 @@ static void print_result(res *res) {
 		printf("Sorted: " COLOR_GREEN "TRUE" COLOR_RESET "\n");
 	else
 		printf("Sorted: " COLOR_RED "FALSE" COLOR_RESET "\n");
-	printf("Time: %.3lfs\n", res->exec_time);
+	printf("Time: %lf seconds\n", res->exec_time);
 }
