@@ -8,6 +8,7 @@ The included sorting algorithms and their worst-case computational complexities:
 * <b>Heapsort</b> (`heapsort.c`):
   * O(n) = nlogn
 * <b>Shellsort</b> (`shellsort.c`):
+  * O(n) = n<sup>α</sup>; α < 2
   * Using Ciura gap sequence (function `shellsort` or `shellsort_ciura`):
     * O(n) = unknown
     * Currently has the best known performance
