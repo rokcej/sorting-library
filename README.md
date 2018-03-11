@@ -50,9 +50,9 @@ to sort an integer array `array` (data type `int*`) with `n` (data type `int`) e
 To choose which sorting algorithms to test, edit the `algorithms` struct array in the `main` function of `test.c`:
 ```c
 alg algorithms[] = {
-	// ... ,	
-	{ "Algorithm name", algorithm_name },
-	// ...
+	// ... ,
+	{ "Algorithm name", algorithm_name }
+	// , ...
 };
 ```
 Each `alg` struct in the array represents a sorting algorithm to be tested. It includes:
