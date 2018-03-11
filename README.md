@@ -5,31 +5,31 @@ A simple sorting algorithm library written in C, along with a program to test an
 ## Algorithms
 The included sorting algorithms and their worst-case computational complexities:
 ### Advanced
-* Heapsort (`heapsort.c`):
+* <b>Heapsort</b> (`heapsort.c`):
   * O(n) = nlogn
-* Shellsort (`shellsort.c`):
-  * Using Ciura gap sequence (`shellsort` or `shellsort_ciura`):
+* <b>Shellsort</b> (`shellsort.c`):
+  * Using Ciura gap sequence (function `shellsort` or `shellsort_ciura`):
     * O(n) = unknown
     * Currently has the best known performance
     * The sequence was found empirically. Gaps beyond 1750 are not yet known, but it can be extended with the recursive formula h<sub>k</sub> = floor(2.25 * h<sub>k-1</sub>)
-  * Using Tokuda gap sequence (`shellsort_tokuda`):
+  * Using Tokuda gap sequence (function `shellsort_tokuda`):
     * O(n) = unknown
     * h<sub>k</sub> = ceiling((9 * (9/4)<sup>k-1</sup> - 4) / 5);	k ≥ 1
 ### Simple
-* Insertion sort (`insertion_sort.c`):
+* <b>Insertion sort</b> (`insertion_sort.c`):
   * O(n) = n<sup>2</sup>
-* Selection sort (`selection_sort.c`):
+* <b>Selection sort</b> (`selection_sort.c`):
   * O(n) = n<sup>2</sup>
-* Gnome sort (`gnome_sort.c`):
+* <b>Gnome sort</b> (`gnome_sort.c`):
   * O(n) = n<sup>2</sup>
   * Also known as Stupid sort
   * Similar to Insertion sort, except shittier
-* Cocktail shaker sort (`cocktail_shaker_sort.c`):
+* <b>Cocktail shaker sort</b> (`cocktail_shaker_sort.c`):
   * O(n) = n<sup>2</sup>
   * Similar to Bubble sort, except it sorts in both directions
-* Bubble sort (`bubble_sort.c`):
+* <b>Bubble sort</b> (`bubble_sort.c`):
   * O(n) = n<sup>2</sup>
-* Bogosort (`bogosort.c`):
+* <b>Bogosort</b> (`bogosort.c`):
   * O(n) = infinity
   * Not recommended running on more than 13 elements
 
