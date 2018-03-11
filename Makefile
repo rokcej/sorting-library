@@ -1,7 +1,8 @@
 CC=gcc
 CFLAGS=
+LDLIBS=-lm
 BUILDDIR=build
-SOURCES=test.c heapsort.c insertion_sort.c selection_sort.c gnome_sort.c cocktail_shaker_sort.c bubble_sort.c bogosort.c
+SOURCES=test.c heapsort.c shellsort.c insertion_sort.c selection_sort.c gnome_sort.c cocktail_shaker_sort.c bubble_sort.c bogosort.c
 OBJS=$(patsubst %.c,$(BUILDDIR)/%.o,$(SOURCES))
 EXECUTABLE=$(BUILDDIR)/test
 
@@ -12,7 +13,7 @@ all: $(EXECUTABLE)
 $(EXECUTABLE) : $(OBJS)
 	@mkdir -p $(BUILDDIR)
 	@echo "Linking..."
-	@$(CC) $(CFLAGS) $^ -o $@
+	@$(CC) $(CFLAGS) $^ $(LDLIBS) -o $@
 
 # Compile .c files into .o files
 $(BUILDDIR)/%.o: %.c

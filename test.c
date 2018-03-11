@@ -3,8 +3,9 @@
 #include <time.h>
 #include "test.h"
 #include "heapsort.h"
-#include "selection_sort.h"
+#include "shellsort.h"
 #include "insertion_sort.h"
+#include "selection_sort.h"
 #include "gnome_sort.h"
 #include "cocktail_shaker_sort.h"
 #include "bubble_sort.h"
@@ -18,8 +19,9 @@ int main() {
 	 */
 	alg algorithms[] = {
 		{ "Heapsort", heapsort },
-		{ "Selection sort", selection_sort },
+		{ "Shellsort", shellsort },
 		{ "Insertion sort", insertion_sort },
+		{ "Selection sort", selection_sort },
 		{ "Gnome sort", gnome_sort },
 		{ "Cocktail shaker sort", cocktail_shaker_sort },
 		{ "Bubble sort", bubble_sort }

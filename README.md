@@ -1,14 +1,24 @@
+
 # Sorting library
 A simple sorting algorithm library written in C, along with a program to test and compare different sorting algorithms.
 
 ## Algorithms
 The included sorting algorithms and their worst-case computational complexities:
+### Advanced
 * Heapsort (`heapsort.c`):
   * O(n) = nlogn
-  * Currently the fastest in the library
-* Selection sort (`selection_sort.c`):
-  * O(n) = n<sup>2</sup>
+* Shellsort (`shellsort.c`):
+  * Using Ciura gap sequence (`shellsort` or `shellsort_ciura`):
+    * O(n) = unknown
+    * Currently has the best known performance
+    * The sequence was found empirically. Gaps beyond 1750 are not yet known, but it can be extended with the recursive formula h<sub>k</sub> = floor(2.25 * h<sub>k-1</sub>)
+  * Using Tokuda gap sequence (`shellsort_tokuda`):
+    * O(n) = unknown
+    * h<sub>k</sub> = ceiling((9 * (9/4)<sup>k-1</sup> - 4) / 5);	k ≥ 1
+### Simple
 * Insertion sort (`insertion_sort.c`):
+  * O(n) = n<sup>2</sup>
+* Selection sort (`selection_sort.c`):
   * O(n) = n<sup>2</sup>
 * Gnome sort (`gnome_sort.c`):
   * O(n) = n<sup>2</sup>
