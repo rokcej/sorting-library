@@ -19,6 +19,8 @@ typedef struct { // Struct representing a sorting algorithm
 static void run_tests(alg *algs, int num_algs, int n);
 static int *allocate_array(int n);
 static int *generate_array(int n);
+static void shuffle_array(int *a, int n);
+static void swap(int *x, int *y);
 static int *copy_array(int *a_in, int *a_out, int n);
 static float measure_time(int *a, int n, void (*f)(int*, int));
 static int is_sorted(int *a, int n);

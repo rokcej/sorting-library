@@ -1,5 +1,6 @@
 #include "bogosort.h"
 #include <stdlib.h>
+#include <time.h>
 
 // Bogosort algorithm
 void bogosort(int *a, int n) {
@@ -16,18 +17,12 @@ static int is_sorted(int *a, int n) {
 }
 // Shuffle a
 static void shuffle(int *a, int n) {
-	// Version 1
+	srand(time(NULL)); // Time as the RNG seed
 	for (int i = 0; i < n - 1; i++) {
 		int r = (rand() % (n-i)) + i;
-		if (i != r)	
+		if (i != r)
 			swap(a+i, a+r);
 	}
-
-	// Version 2
-	/*for (int i = 0; i < n; i++)
-		int r = rand() % n;
-		if (i != r)
-			swap(a+i, a+r);*/
 }
 // Swap two integers
 static void swap(int *x, int *y) {

@@ -10,9 +10,13 @@ The included sorting algorithms and their worst-case computational complexities:
   * O(n) = n<sup>2</sup>
 * Insertion sort (`insertion_sort.c`):
   * O(n) = n<sup>2</sup>
+* Gnome sort (`gnome_sort.c`):
+  * O(n) = n<sup>2</sup>
+  * Also known as Stupid sort
+  * Similar to Insertion sort, except shittier
 * Cocktail shaker sort (`cocktail_shaker_sort.c`):
   * O(n) = n<sup>2</sup>
-  * Similar to bubble sort, except it sorts in both directions
+  * Similar to Bubble sort, except it sorts in both directions
 * Bubble sort (`bubble_sort.c`):
   * O(n) = n<sup>2</sup>
 * Bogosort (`bogosort.c`):
@@ -22,7 +26,7 @@ The included sorting algorithms and their worst-case computational complexities:
 Note that additional sorting algorithms may be added in the future.
 
 ## Tester
-The tester receives `n` as the input, generates a random array of `n` integers from the interval [1, `n`] and measures the execution time of different sorting algorithms on that array.
+The tester reads `n` from the standard input, generates an array that is a random permutation of numbers from 1 to `n` and measures the execution time of different sorting algorithms on that array.
 
 ## How to use it
 ### Building and running the tester

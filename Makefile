@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=
 BUILDDIR=build
-SOURCES=test.c heapsort.c insertion_sort.c selection_sort.c cocktail_shaker_sort.c bubble_sort.c bogosort.c
+SOURCES=test.c heapsort.c insertion_sort.c selection_sort.c gnome_sort.c cocktail_shaker_sort.c bubble_sort.c bogosort.c
 OBJS=$(patsubst %.c,$(BUILDDIR)/%.o,$(SOURCES))
 EXECUTABLE=$(BUILDDIR)/test
 

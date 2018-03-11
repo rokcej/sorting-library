@@ -5,6 +5,7 @@
 #include "heapsort.h"
 #include "selection_sort.h"
 #include "insertion_sort.h"
+#include "gnome_sort.h"
 #include "cocktail_shaker_sort.h"
 #include "bubble_sort.h"
 #include "bogosort.h"
@@ -19,6 +20,7 @@ int main() {
 		{ "Heapsort", heapsort },
 		{ "Selection sort", selection_sort },
 		{ "Insertion sort", insertion_sort },
+		{ "Gnome sort", gnome_sort },
 		{ "Cocktail shaker sort", cocktail_shaker_sort },
 		{ "Bubble sort", bubble_sort }
 		//{ "Bogosort", bogosort } // Too slow! Don't use for n > 13
@@ -64,13 +66,28 @@ static void run_tests(alg *algs, int num_algs, int n) {
 static int *allocate_array(int n) {
 	return (int*)malloc(n * sizeof(int));
 }
-// Generate an array of n random numbers on the interval [1, n]
+// Generate a random permutation of numbers from 1 to n (inclusive)
 static int *generate_array(int n) {
-	srand(time(NULL)); // Time as the RNG seed
 	int *a = allocate_array(n);
 	for (int i = 0; i < n; i++)
-		a[i] = (rand() % n) + 1;
+		a[i] = i + 1;
+	shuffle_array(a, n);
 	return a;
+}
+// Randomly permute an array of n elements
+static void shuffle_array(int *a, int n) {
+	srand(time(NULL)); // Time as the RNG seed
+	for (int i = 0; i < n - 1; i++) {
+		int r = (rand() % (n-i)) + i;
+		if (i != r)
+			swap(a+i, a+r);
+	}
+}
+// Swap two integers
+static void swap(int *x, int *y) {
+	int temp = *x;
+	*x = *y;
+	*y = temp;
 }
 // Copies array a_in onto array a_out
 static int *copy_array(int *a_in, int *a_out, int n) {
