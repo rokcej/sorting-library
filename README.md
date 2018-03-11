@@ -23,7 +23,7 @@ The included sorting algorithms and their worst-case computational complexities:
 * <b>Gnome sort</b> (`gnome_sort.c`):
   * O(n) = n<sup>2</sup>
   * Also known as Stupid sort
-  * Similar to Insertion sort, except shittier
+  * Similar to Insertion sort, but simpler (uses only 1 variable)
 * <b>Cocktail shaker sort</b> (`cocktail_shaker_sort.c`):
   * O(n) = n<sup>2</sup>
   * Similar to Bubble sort, except it sorts in both directions
@@ -32,6 +32,7 @@ The included sorting algorithms and their worst-case computational complexities:
 * <b>Bogosort</b> (`bogosort.c`):
   * O(n) = infinity
   * Not recommended running on more than 13 elements
+  * Disabled by default in the tester
 
 Note that additional sorting algorithms may be added in the future.
 
