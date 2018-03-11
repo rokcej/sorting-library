@@ -9,11 +9,11 @@ The included sorting algorithms and their worst-case computational complexities:
   * O(n) = nlogn
 * <b>Shellsort</b> (`shellsort.c`):
   * O(n) = n<sup>α</sup>; α < 2
-  * Using Ciura gap sequence (function `shellsort` or `shellsort_ciura`):
+  * Using [Ciura gap sequence](https://oeis.org/A102549) (function `shellsort` or `shellsort_ciura`):
     * O(n) = unknown
     * Currently has the best known performance
-    * The sequence was found empirically. Gaps beyond 1750 are not yet known, but it can be extended with the recursive formula h<sub>k</sub> = floor(2.25 * h<sub>k-1</sub>)
-  * Using Tokuda gap sequence (function `shellsort_tokuda`):
+    * The sequence was found empirically. Gaps beyond 1750 are not yet known, but it can be extended with the recursive formula h<sub>k</sub> = floor(2.25 * h<sub>k-1</sub>) ([Source](https://en.wikipedia.org/wiki/Shellsort#Gap_sequences))
+  * Using [Tokuda gap sequence](https://oeis.org/A108870) (function `shellsort_tokuda`):
     * O(n) = unknown
     * Sequence formula: h<sub>k</sub> = ceiling((9 * (9/4)<sup>k-1</sup> - 4) / 5); k ≥ 1
 ### Simple
