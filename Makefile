@@ -1,6 +1,7 @@
 CC=gcc
 CFLAGS=
 LDLIBS=-lm
+SOURCEDIR=src
 BUILDDIR=build
 SOURCES=test.c heapsort.c shellsort.c insertion_sort.c selection_sort.c gnome_sort.c cocktail_shaker_sort.c bubble_sort.c bogosort.c
 OBJS=$(patsubst %.c,$(BUILDDIR)/%.o,$(SOURCES))
@@ -16,7 +17,7 @@ $(EXECUTABLE) : $(OBJS)
 	@$(CC) $(CFLAGS) $^ $(LDLIBS) -o $@
 
 # Compile .c files into .o files
-$(BUILDDIR)/%.o: %.c
+$(BUILDDIR)/%.o: $(SOURCEDIR)/%.c
 	@mkdir -p $(BUILDDIR)
 	@echo "Compiling $^"
 	@$(CC) $(CFLAGS) -c $< -o $@
