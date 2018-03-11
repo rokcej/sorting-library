@@ -45,7 +45,7 @@ Use the `Makefile` to compile and link the program. On Linux you can do so by us
 ```bash
 $ make
 ```
-This will create an executable file (and object files) in the `build/` folder. You can then run the tester with:
+This will create an executable file (and object files) in the `build` folder. You can then run the tester with:
 ```bash
 $ build/test
 ```
