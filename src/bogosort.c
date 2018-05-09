@@ -6,12 +6,17 @@
 void bogosort(int *a, int n) {
 	bogosort_det(a, n); // Deterministic version is used by default
 }
-
-
 // Deterministic version of bogosort
 void bogosort_det(int *a, int n) {
 	bogosort_det_rec(a, n, 0);
 }
+// Random version of bogosort
+void bogosort_rand(int *a, int n) {
+	srand(time(NULL)); // Time as the RNG seed
+	while (!is_sorted(a, n))
+		shuffle(a, n);
+}
+
 // Recursively permute a until it is sorted
 static int bogosort_det_rec(int *a, int n, int depth) {
 	if (depth == n)
@@ -26,13 +31,6 @@ static int bogosort_det_rec(int *a, int n, int depth) {
 	return 0;
 }
 
-
-// Random version of bogosort
-void bogosort_rand(int *a, int n) {
-	srand(time(NULL)); // Time as the RNG seed
-	while (!is_sorted(a, n))
-		shuffle(a, n);
-}
 // Randomly permute a
 static void shuffle(int *a, int n) {
 	for (int i = 0; i < n - 1; i++) {
@@ -42,7 +40,6 @@ static void shuffle(int *a, int n) {
 	}
 }
 
-
 // Check if a is sorted
 static int is_sorted(int *a, int n) {
 	for (int i = 0; i < n-1; i++) {
@@ -51,6 +48,7 @@ static int is_sorted(int *a, int n) {
 	}
 	return 1;
 }
+
 // Swap two integers
 static void swap(int *x, int *y) {
 	int temp = *x;

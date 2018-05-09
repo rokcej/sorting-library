@@ -19,13 +19,13 @@ int main() {
 	 */
 	alg algorithms[] = {
 		{ 1, "Heapsort", heapsort },
-		{ 0, "Shellsort", shellsort },
-		{ 0, "Insertion sort", insertion_sort },
-		{ 0, "Selection sort", selection_sort },
-		{ 0, "Gnome sort", gnome_sort },
-		{ 0, "Cocktail shaker sort", cocktail_shaker_sort },
+		{ 1, "Shellsort", shellsort },
+		{ 1, "Insertion sort", insertion_sort },
+		{ 1, "Selection sort", selection_sort },
+		{ 1, "Gnome sort", gnome_sort },
+		{ 1, "Cocktail shaker sort", cocktail_shaker_sort },
 		{ 1, "Bubble sort", bubble_sort },
-		{ 1, "Bogosort", bogosort } // Too slow!
+		{ 0, "Bogosort", bogosort } // Too slow!
 	};
 
 	// Total number of sorting algorithms

@@ -6,7 +6,7 @@ A simple sorting algorithm library written in C, along with a program to test an
 The included sorting algorithms and their worst-case computational complexities:
 ### Advanced
 * <b>Heapsort</b> (`heapsort.c`):
-  * O(nlogn)
+  * O(n*logn)
 * <b>Shellsort</b> (`shellsort.c`):
   * O(n<sup>α</sup>); α < 2
   * Using [Ciura gap sequence](https://oeis.org/A102549) (function `shellsort` or `shellsort_ciura`):
@@ -31,11 +31,11 @@ The included sorting algorithms and their worst-case computational complexities:
 * <b>Bubble sort</b> (`bubble_sort.c`):
   * O(n<sup>2</sup>)
 * <b>Bogosort</b> (`bogosort.c`):
+  * Disabled by default in the tester because it is too slow
   * Deterministic version (function `bogosort` or `bogosort_det`):
     * O((n+1)!)
   * Random version (function `bogosort_rand`):
     * O(∞)
-  * Disabled by default in the tester because it is too slow
 
 Note that additional sorting algorithms may be added in the future.
 
