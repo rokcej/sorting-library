@@ -18,17 +18,17 @@ int main() {
 	 *  simply add a new struct to the array
 	 */
 	alg algorithms[] = {
-		{ "Heapsort", heapsort },
-		{ "Shellsort", shellsort },
-		{ "Insertion sort", insertion_sort },
-		{ "Selection sort", selection_sort },
-		{ "Gnome sort", gnome_sort },
-		{ "Cocktail shaker sort", cocktail_shaker_sort },
-		{ "Bubble sort", bubble_sort }
-		//{ "Bogosort", bogosort } // Too slow! Don't use for n > 13
+		{ 1, "Heapsort", heapsort },
+		{ 0, "Shellsort", shellsort },
+		{ 0, "Insertion sort", insertion_sort },
+		{ 0, "Selection sort", selection_sort },
+		{ 0, "Gnome sort", gnome_sort },
+		{ 0, "Cocktail shaker sort", cocktail_shaker_sort },
+		{ 1, "Bubble sort", bubble_sort },
+		{ 1, "Bogosort", bogosort } // Too slow!
 	};
 
-	// Number of sorting algorithms to be tested
+	// Total number of sorting algorithms
 	int num_algorithms = sizeof(algorithms) / sizeof(*algorithms);
 	// Size of the array to test the sorting algorithms on
 	int n;
@@ -50,15 +50,17 @@ static void run_tests(alg *algs, int num_algs, int n) {
 	int *a = allocate_array(n); // This is the working array
 	res *results = (res*)malloc(num_algs * sizeof(res));
 	for (int i = 0; i < num_algs; i++) {
-		copy_array(a_raw, a, n); // Copy original array onto working array
-		printf(COLOR_CYAN "%s\n" COLOR_RESET, algs[i].name);
+		if (algs[i].use) {
+			copy_array(a_raw, a, n); // Copy original array onto working array
+			printf(COLOR_CYAN "%s\n" COLOR_RESET, algs[i].name);
 
-		results[i].exec_time = measure_time(a, n, algs[i].f);
-		results[i].sorted = is_sorted(a, n);
+			results[i].exec_time = measure_time(a, n, algs[i].func);
+			results[i].sorted = is_sorted(a, n);
 
-		print_result(results+i);
-		if (i < num_algs - 1)
-			printf("\n");
+			print_result(results+i);
+			if (i < num_algs - 1)
+				printf("\n");
+		}
 	}
 	free(a_raw);
 	free(a);

@@ -6,33 +6,36 @@ A simple sorting algorithm library written in C, along with a program to test an
 The included sorting algorithms and their worst-case computational complexities:
 ### Advanced
 * <b>Heapsort</b> (`heapsort.c`):
-  * O(n) = nlogn
+  * O(nlogn)
 * <b>Shellsort</b> (`shellsort.c`):
-  * Using Ciura gap sequence (function `shellsort` or `shellsort_ciura`):
-    * O(n) = unknown
+  * O(n<sup>α</sup>); α < 2
+  * Using [Ciura gap sequence](https://oeis.org/A102549) (function `shellsort` or `shellsort_ciura`):
+    * Time complexity unknown
     * Currently has the best known performance
-    * The sequence was found empirically. Gaps beyond 1750 are not yet known, but it can be extended with the recursive formula h<sub>k</sub> = floor(2.25 * h<sub>k-1</sub>)
-  * Using Tokuda gap sequence (function `shellsort_tokuda`):
-    * O(n) = unknown
+    * The sequence was found empirically. Gaps beyond 1750 are not yet known, but it can be extended with the recursive formula h<sub>k</sub> = floor(2.25 * h<sub>k-1</sub>) ([Source](https://en.wikipedia.org/wiki/Shellsort#Gap_sequences))
+  * Using [Tokuda gap sequence](https://oeis.org/A108870) (function `shellsort_tokuda`):
+    * Time complexity unknown
     * Sequence formula: h<sub>k</sub> = ceiling((9 * (9/4)<sup>k-1</sup> - 4) / 5); k ≥ 1
 ### Simple
 * <b>Insertion sort</b> (`insertion_sort.c`):
-  * O(n) = n<sup>2</sup>
+  * O(n<sup>2</sup>)
 * <b>Selection sort</b> (`selection_sort.c`):
-  * O(n) = n<sup>2</sup>
+  * O(n<sup>2</sup>)
 * <b>Gnome sort</b> (`gnome_sort.c`):
-  * O(n) = n<sup>2</sup>
+  * O(n<sup>2</sup>)
   * Also known as Stupid sort
   * Similar to Insertion sort, but simpler (uses only 1 variable)
 * <b>Cocktail shaker sort</b> (`cocktail_shaker_sort.c`):
-  * O(n) = n<sup>2</sup>
-  * Similar to Bubble sort, except it sorts in both directions
+  * O(n<sup>2</sup>)
+  * Similar to Bubble sort, except it works in both directions
 * <b>Bubble sort</b> (`bubble_sort.c`):
-  * O(n) = n<sup>2</sup>
+  * O(n<sup>2</sup>)
 * <b>Bogosort</b> (`bogosort.c`):
-  * O(n) = infinity
-  * Not recommended running on more than 13 elements
-  * Disabled by default in the tester
+  * Deterministic version (function `bogosort` or `bogosort_det`):
+    * O((n+1)!)
+  * Random version (function `bogosort_rand`):
+    * O(∞)
+  * Disabled by default in the tester because it is too slow
 
 Note that additional sorting algorithms may be added in the future.
 
@@ -62,16 +65,18 @@ algorithm_name(array, n);
 to sort an integer array `array` (data type `int*`) with `n` (data type `int`) elements.
 
 ### Choosing which sorting algorithms to use in the tester
-To choose which sorting algorithms to test, edit the `algorithms` struct array in the `main` function of `test.c`:
+To choose which sorting algorithms to test, edit the `use_algorithm` flag in the `algorithms` struct array in the `main` function of `test.c`:
 ```c
 alg algorithms[] = {
 	// ... ,
-	{ "Algorithm name", algorithm_name }
+	{ use_algorithm, "Algorithm name", algorithm_name }
 	// , ...
 };
 ```
-Each `alg` struct in the array represents a sorting algorithm to be tested. It includes:
-* A string `"Algorithm name"` - the name of the algorithm, which is printed along with the test results.
-* A function pointer `algorithm_name` - it points to the sorting function of the algorithm.
+Each `alg` struct in the array represents an avaliable sorting algorithm. It includes:
+* An integer `use_algorighm` - a flag that specifies whether to test this algorithm. Acceptable values are `1` (true) and `0` (false).
+* A string `"Algorithm name"` - the name of the algorithm, which is printed along with the test result.
+* A function pointer `algorithm_name` - the sorting function of the algorithm.
 
-Note that sorting functions always have the same name as the algorithm source code file (without the `.c` or `.h` extension).
+To add your own sorting algorithm to the tester, add a corresponding `alg` struct to the `algorithms` array.
+Note that sorting functions should always have the same name as the algorithm source code file (without the `.c` or `.h` extension) for consistency.

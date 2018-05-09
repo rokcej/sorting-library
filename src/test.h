@@ -12,8 +12,9 @@ typedef struct { // Struct representing the result of a sorting algorithm test
 	float exec_time; // Execution time
 } res;
 typedef struct { // Struct representing a sorting algorithm
+	int use; // Flag specifying whether to use/test this algorithm
 	char *name; // Algorithm name
-	void (*f)(int*, int); // Algorithm function pointer
+	void (*func)(int*, int); // Algorithm function pointer
 } alg;
 
 static void run_tests(alg *algs, int num_algs, int n);
