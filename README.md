@@ -15,7 +15,7 @@ The included sorting algorithms and their worst-case computational complexities:
     * The sequence was found empirically. Gaps beyond 1750 are not yet known, but it can be extended with the recursive formula h<sub>k</sub> = floor(2.25 * h<sub>k-1</sub>) ([Source](https://en.wikipedia.org/wiki/Shellsort#Gap_sequences))
   * Using [Tokuda gap sequence](https://oeis.org/A108870) (function `shellsort_tokuda`):
     * Time complexity unknown
-    * Sequence formula: h<sub>k</sub> = ceiling((9 * (9/4)<sup>k-1</sup> - 4) / 5); k ≥ 1
+    * Sequence formula: h<sub>k</sub> = ceiling((9 * (9/4)<sup>k</sup> - 4) / 5); k ≥ 0
 ### Simple
 * <b>Insertion sort</b> (`insertion_sort.c`):
   * O(n<sup>2</sup>)
