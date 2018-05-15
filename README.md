@@ -5,13 +5,19 @@ A simple sorting algorithm library written in C, along with a program to test an
 ## Algorithms
 The included sorting algorithms and their worst-case computational complexities:
 ### Advanced
+* <b>Quicksort</b> (`quicksort.c`):
+  * Average-case: O(n*logn)
+  * Worst-case: O(n<sup>2</sup>)
+  * Despite the bad worst-case performance, it can still be much faster than Merge sort and Heapsort when implemented well
+* <b>Merge sort</b> (`merge_sort.c`):
+  * O(n*logn)
 * <b>Heapsort</b> (`heapsort.c`):
   * O(n*logn)
 * <b>Shellsort</b> (`shellsort.c`):
   * O(n<sup>α</sup>); α < 2
   * Using [Ciura gap sequence](https://oeis.org/A102549) (function `shellsort` or `shellsort_ciura`):
     * Time complexity unknown
-    * Currently has the best known performance
+    * Currently has the best known performance among other gap sequences
     * The sequence was found empirically. Gaps beyond 1750 are not yet known, but it can be extended with the recursive formula h<sub>k</sub> = floor(2.25 * h<sub>k-1</sub>) ([Source](https://en.wikipedia.org/wiki/Shellsort#Gap_sequences))
   * Using [Tokuda gap sequence](https://oeis.org/A108870) (function `shellsort_tokuda`):
     * Time complexity unknown
@@ -60,9 +66,13 @@ If you want to use one or more sorting algorithms from this library in one of yo
 ```
  Then you can use the included sorting algorithm by calling the function:
 ```c
-algorithm_name(array, n);
+algorithm_name(array, n, cmp);
 ```
-to sort an integer array `array` (data type `int*`) with `n` (data type `int`) elements.
+to sort an integer array `array` (data type `int*`) with `n` (data type `int`) elements using the `cmp` (data type `int (*)(int, int)`) comparator function.  
+For example, a comparator that sorts the elements in ascending order would be:
+```c
+int comparator_ascending(int x, int y) { return x <= y; }
+```
 
 ### Choosing which sorting algorithms to use in the tester
 To choose which sorting algorithms to test, edit the `use_algorithm` flag in the `algorithms` struct array in the `main` function of `test.c`:

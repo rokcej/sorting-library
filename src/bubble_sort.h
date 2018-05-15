@@ -1,8 +1,8 @@
 #ifndef _bubble_sort_h
 #define _bubble_sort_h
 
-void bubble_sort(int *a, int n);
+typedef int (*cmp_t)(int, int); // Sorting function comparator
 
-static void swap(int *x, int *y);
+void bubble_sort(int *a, int n, cmp_t cmp);
 
 #endif

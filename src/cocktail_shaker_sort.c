@@ -1,7 +1,10 @@
 #include "cocktail_shaker_sort.h"
 
+// Private function declarations
+static void swap(int *x, int *y);
+
 // Cocktail shaker sort algorithm
-void cocktail_shaker_sort(int *a, int n) {
+void cocktail_shaker_sort(int *a, int n, cmp_t cmp) {
 	int iBegin = 0;
     int iEnd = n-2;
     while (iBegin <= iEnd) {
@@ -9,7 +12,7 @@ void cocktail_shaker_sort(int *a, int n) {
         int iEndNew = iBegin;
         // Up
         for (int i = iBegin; i <= iEnd; i++) {
-            if (a[i] > a[i+1]) {
+            if (!cmp(a[i], a[i+1])) {
                 swap(a+i, a+i+1);
                 iEndNew = i;
             }
@@ -17,7 +20,7 @@ void cocktail_shaker_sort(int *a, int n) {
         iEnd = iEndNew - 1;
         // Down
         for (int i = iEnd; i >= iBegin; i--) {
-            if (a[i] > a[i+1]) {
+            if (!cmp(a[i], a[i+1])) {
                 swap(a+i, a+i+1);
                 iBeginNew = i;
             }

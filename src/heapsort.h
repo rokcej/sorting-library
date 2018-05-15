@@ -1,10 +1,8 @@
 #ifndef _heapsort_h
 #define _heapsort_h
 
-void heapsort(int *a, int n);
+typedef int (*cmp_t)(int, int); // Sorting function comparator
 
-static void create_heap(int *a, int n);
-static void adjust_heap(int *a, int n, int i);
-static void swap(int *x, int *y);
+void heapsort(int *a, int n, cmp_t cmp);
 
 #endif

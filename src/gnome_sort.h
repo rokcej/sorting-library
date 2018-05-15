@@ -1,8 +1,8 @@
 #ifndef _gnome_sort_h
 #define _gnome_sort_h
 
-void gnome_sort(int *a, int n);
+typedef int (*cmp_t)(int, int); // Sorting function comparator
 
-static void swap(int *x, int *y);
+void gnome_sort(int *a, int n, cmp_t cmp);
 
 #endif

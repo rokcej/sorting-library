@@ -2,29 +2,35 @@
 #include <stdlib.h>
 #include <time.h>
 
+// Private function declarations
+static int bogosort_det_rec(int *a, int n, int depth, cmp_t cmp);
+static void shuffle(int *a, int n);
+static int is_sorted(int *a, int n, cmp_t cmp);
+static void swap(int *x, int *y);
+
 // Bogosort algorithm
-void bogosort(int *a, int n) {
-	bogosort_det(a, n); // Deterministic version is used by default
+void bogosort(int *a, int n, cmp_t cmp) {
+	bogosort_det(a, n, cmp); // Deterministic version is used by default
 }
 // Deterministic version of bogosort
-void bogosort_det(int *a, int n) {
-	bogosort_det_rec(a, n, 0);
+void bogosort_det(int *a, int n, cmp_t cmp) {
+	bogosort_det_rec(a, n, 0, cmp);
 }
 // Random version of bogosort
-void bogosort_rand(int *a, int n) {
+void bogosort_rand(int *a, int n, cmp_t cmp) {
 	srand(time(NULL)); // Time as the RNG seed
-	while (!is_sorted(a, n))
+	while (!is_sorted(a, n, cmp))
 		shuffle(a, n);
 }
 
 // Recursively permute a until it is sorted
-static int bogosort_det_rec(int *a, int n, int depth) {
+static int bogosort_det_rec(int *a, int n, int depth, cmp_t cmp) {
 	if (depth == n)
-		return is_sorted(a, n);
+		return is_sorted(a, n, cmp);
 
 	for (int i = depth; i < n; i++) {
 		swap(a+depth, a+i);
-		if (bogosort_det_rec(a, n, depth+1))
+		if (bogosort_det_rec(a, n, depth+1, cmp))
 			return 1;
 		swap(a+depth, a+i);
 	}
@@ -41,9 +47,9 @@ static void shuffle(int *a, int n) {
 }
 
 // Check if a is sorted
-static int is_sorted(int *a, int n) {
+static int is_sorted(int *a, int n, cmp_t cmp) {
 	for (int i = 0; i < n-1; i++) {
-		if (a[i] > a[i+1])
+		if (!cmp(a[i], a[i+1]))
 			return 0;
 	}
 	return 1;

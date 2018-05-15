@@ -1,8 +1,8 @@
 #ifndef _selection_sort_h
 #define _selection_sort_h
 
-void selection_sort(int *a, int n);
+typedef int (*cmp_t)(int, int); // Sorting function comparator
 
-static void swap(int *x, int *y);
+void selection_sort(int *a, int n, cmp_t cmp);
 
 #endif
