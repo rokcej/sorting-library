@@ -56,7 +56,7 @@ $ make
 ```
 This will create an executable file (and object files) in the `build` folder. You can then run the tester with:
 ```bash
-$ build/test
+$ build/main
 ```
 
 ### Using the sorting algorithms in your programs
@@ -75,18 +75,18 @@ int comparator_ascending(int x, int y) { return x <= y; }
 ```
 
 ### Choosing which sorting algorithms to use in the tester
-To choose which sorting algorithms to test, edit the `use_algorithm` flag in the `algorithms` struct array in the `main` function of `test.c`:
+To choose which sorting algorithms to test, edit the `use_algorithm` flag in the `algorithms` struct array in the `main` function of `main.c`:
 ```c
-alg algorithms[] = {
+Alg algorithms[] = {
 	// ... ,
 	{ use_algorithm, "Algorithm name", algorithm_name }
 	// , ...
 };
 ```
-Each `alg` struct in the array represents an avaliable sorting algorithm. It includes:
+Each `Alg` struct in the array represents an avaliable sorting algorithm. It includes:
 * An integer `use_algorighm` - a flag that specifies whether to test this algorithm. Acceptable values are `1` (true) and `0` (false).
 * A string `"Algorithm name"` - the name of the algorithm, which is printed along with the test result.
 * A function pointer `algorithm_name` - the sorting function of the algorithm.
 
-To add your own sorting algorithm to the tester, add a corresponding `alg` struct to the `algorithms` array.
+To add your own sorting algorithm to the tester, add a corresponding `Alg` struct to the `algorithms` array. The struct is defined in `tester.h`.
 Note that sorting functions should always have the same name as the algorithm source code file (without the `.c` or `.h` extension) for consistency.

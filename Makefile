@@ -3,9 +3,9 @@ CFLAGS=
 LDLIBS=-lm
 SOURCEDIR=src
 BUILDDIR=build
-SOURCES=test.c quicksort.c merge_sort.c heapsort.c shellsort.c insertion_sort.c selection_sort.c gnome_sort.c cocktail_shaker_sort.c bubble_sort.c bogosort.c
+SOURCES=main.c tester.c quicksort.c merge_sort.c heapsort.c shellsort.c insertion_sort.c selection_sort.c gnome_sort.c cocktail_shaker_sort.c bubble_sort.c bogosort.c
 OBJS=$(patsubst %.c,$(BUILDDIR)/%.o,$(SOURCES))
-EXECUTABLE=$(BUILDDIR)/test
+EXECUTABLE=$(BUILDDIR)/main
 
 all: $(EXECUTABLE)
 	@true
