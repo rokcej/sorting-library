@@ -92,5 +92,5 @@ To add your own sorting algorithm to the tester, add a corresponding `Alg` struc
 Note that sorting functions should always have the same name as the algorithm source code file (without the `.c` or `.h` extension) for consistency.
 
 ### Example
-Here's an example of what running the tester actually looks like. In this example, an array of length 100000 is used (`n = 100000`):
+Here's an example of what running the tester actually looks like. In this example, an array of length 100000 is used (`n = 100000`):  
 ![Tester example](img/example.jpg "Tester example")
