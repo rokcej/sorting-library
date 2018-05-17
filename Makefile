@@ -11,7 +11,7 @@ all: $(EXECUTABLE)
 	@true
 
 # Link .o files into an executable file
-$(EXECUTABLE) : $(OBJS)
+$(EXECUTABLE): $(OBJS)
 	@mkdir -p $(BUILDDIR)
 	@echo "Linking..."
 	@$(CC) $(CFLAGS) $^ $(LDLIBS) -o $@
