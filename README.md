@@ -52,11 +52,11 @@ The tester reads `n` from the standard input, generates an array that is a rando
 ### Building and running the tester
 Use the `Makefile` to compile and link the program. On Linux you can do so by using the command:
 ```bash
-$ make
+make
 ```
 This will create an executable file (and object files) in the `build` folder. You can then run the tester with:
 ```bash
-$ build/main
+build/main
 ```
 
 ### Using the sorting algorithms in your programs
